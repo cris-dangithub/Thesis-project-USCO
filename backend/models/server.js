@@ -9,6 +9,7 @@ const { rateLimit } = require('express-rate-limit');
 const { default: helmet } = require('helmet');
 const xss = require('xss-clean');
 const hpp = require('hpp');
+const { filesRouter } = require('../routes/files.routes');
 
 class Server {
   constructor() {
@@ -65,7 +66,7 @@ class Server {
   // RUTAS
   routes() {
     // Endpoints
-    // ...
+    this.app.use(this.paths.files, filesRouter);
 
     // Validación rutas inexistentes
     this.app.all('*', (req, res, next) => {
