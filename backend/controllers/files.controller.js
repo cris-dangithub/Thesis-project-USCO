@@ -3,12 +3,13 @@ const { catchAsync } = require('../utils/catchAsync');
 const XLSX = require('xlsx');
 
 const extractData = catchAsync(async (req, res, next) => {
-  //const archivo = req.file.buffer;
-  //console.log(archivo);
+  // 1. Extraer la información de las hojas de cálculo
+  const archivo = req.file.buffer;
+  const workbook = XLSX.read(archivo, { type: 'array' });
+  const data = workbook.Sheets;
+  // 2. Validar las entradas de las celdas
 
-  // Leer la hoja de cálculo utilizando SheetsJS
-  //const workbook = XLSX.readFile(archivo);
-  appSuccess(res, 200, 'Perra', { req: req.file });
+  appSuccess(res, 200, 'Perra', { workbook });
 });
 
 module.exports = { extractData };
