@@ -6,7 +6,7 @@ const helmet = require('helmet');
 const xss = require('xss-clean');
 const hpp = require('hpp');
 
-const { db } = require('../database/db');
+//const { db } = require('../database/db');
 const { userRouter } = require('../routes/user.routes');
 const AppError = require('../utils/appError');
 const globalErrorHandler = require('../controllers/error.controller');
