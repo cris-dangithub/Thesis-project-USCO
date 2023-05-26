@@ -2,3 +2,6 @@
 	path = frontend
 	url = https://github.com/cris-dangithub/Thesis-project-USCO-Frontend
 
+[submodule "backend"]
+	path = backend
+	url = https://github.com/cris-dangithub/Thesis-project-USCO-Backend
